@@ -16,12 +16,10 @@ MAINTAINER Sumana Harihareswara
 
 RUN apt-get update
 
-RUN apt-get install -y git
+RUN apt-get install -y git curl
 
-# ADD ./install-racket.sh /tmp/install-racket.sh
-
-# RUN /bin/bash /tmp/install-racket.sh
-
+ADD ./install-racket.sh /tmp/install-racket.sh
+RUN /bin/bash /tmp/install-racket.sh
 
 # RUN git clone https://github.com/brainwane/secureapi.git
 
