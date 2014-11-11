@@ -22,10 +22,11 @@ ADD ./install-racket.sh /tmp/install-racket.sh
 RUN /bin/bash /tmp/install-racket.sh
 # Easiest (?) way to add Racket to the PATH is to supply
 # our own /etc/bash.bashrc.
-ADD ./bash.bashrc /etc/bash.bashrc
+# ADD ./bash.bashrc /etc/bash.bashrc
+ENV PATH $PATH:/usr/racket/bin/
 
 RUN git clone https://github.com/brainwane/secureapi.git
 
-# TODO: EXPOSE a port probably 8000
+# EXPOSE 8000
 
-# TODO: ENTRYPOINT
+# ENTRYPOINT python2.7 hhserver.py
