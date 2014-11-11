@@ -16,7 +16,7 @@ MAINTAINER Sumana Harihareswara
 
 RUN apt-get update
 
-RUN apt-get install -y git curl python2.7
+RUN apt-get install -y git curl python2.7 clang
 
 ADD ./install-racket.sh /tmp/install-racket.sh
 RUN /bin/bash /tmp/install-racket.sh
@@ -24,6 +24,7 @@ ENV PATH $PATH:/usr/racket/bin/
 
 RUN git clone https://github.com/brainwane/secureapi.git
 
-# EXPOSE 8000
+EXPOSE 8000
 
-# ENTRYPOINT python2.7 hhserver.py
+WORKDIR /secureapi
+ENTRYPOINT python2.7 hhserver.py
