@@ -8,16 +8,17 @@ FROM ubuntu:14.04
 
 MAINTAINER Sumana Harihareswara
 
-RUN apt-get update
+# RUN apt-get update
 
-RUN apt-get install -y git
+# RUN apt-get install -y git - maybe already installed?
 
-RUN git clone https://github.com/brainwane/secureapi.git
+ADD ./install-racket.sh /tmp/install-racket.sh
 
-# RUN apt-get install -y racket
-# figure out how to install racket from the website
+RUN /bin/bash /tmp/install-racket.sh
 
-# git clone the repo
+
+# RUN git clone https://github.com/brainwane/secureapi.git
+
 
 # expose a port
 
